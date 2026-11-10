@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS OPTIMIZER PRO</title>
+<style>
+:root {
+  --bg:#0b1020;
+  --panel:#141d30;
+  --panel2:#1b2740;
+  --blue:#4385ff;
+  --text:#f4f7ff;
+  --muted:#91a0bb;
+  --green:#36d99a;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+}
+.layout { display:flex; min-height:100vh; }
+.sidebar {
+  width:235px;
+  background:#10182a;
+  padding:26px 17px;
+  flex-shrink:0;
+}
+.logo { font-size:25px; font-weight:800; letter-spacing:2px; }
+.logo span { color:var(--blue); }
+.tagline { color:var(--muted); font-size:10px; margin-top:7px; }
+.menu { margin-top:40px; }
+.menu button {
+  display:block;
+  width:100%;
+  padding:14px;
+  margin:7px 0;
+  border:0;
+  border-radius:9px;
+  background:transparent;
+  color:var(--muted);
+  text-align:left;
+  cursor:pointer;
+  font-size:13px;
+}
+.menu button.active,.menu button:hover {
+  background:#20365d;
+  color:white;
+}
+.sidebar-bottom {
+  margin-top:55px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.8;
+}
+main { flex:1; min-width:0; padding:30px; }
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:30px;
+}
+h1 { font-size:25px; margin:0; }
+.subtitle { color:var(--muted); font-size:13px; margin-top:8px; }
+.status {
+  background:#12372f;
+  color:var(--green);
+  padding:9px 13px;
+  border-radius:20px;
+  font-size:11px;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+.card {
+  background:var(--panel);
+  padding:20px;
+  border:1px solid #26334b;
+  border-radius:13px;
+}
+.card small { color:var(--muted); font-size:11px; }
+.value { font-size:27px; font-weight:bold; margin-top:17px; }
+.blue { color:#65a0ff; }
+.green { color:var(--green); }
+.purple { color:#bd9bff; }
+.section { margin-top:25px; }
+.section h2 { font-size:17px; margin-bottom:15px; }
+.actions {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+}
+.action-card { background:var(--panel); padding:20px; border-radius:13px; border:1px solid #26334b; }
+.action-card h3 { font-size:14px; }
+.action-card p { color:var(--muted); font-size:12px; line-height:1.6; min-height:38px; }
+.btn {
+  border:0;
+  background:var(--blue);
+  color:white;
+  padding:11px 15px;
+  border-radius:7px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:12px;
+}
+.btn:hover { background:#2868dc; }
+.secondary { background:#263957; }
+.activity {
+  background:var(--panel);
+  border-radius:12px;
+  padding:18px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
+}
+.notice {
+  margin-top:20px;
+  padding:14px;
+  background:#242b3b;
+  border-left:3px solid #e6ae4b;
+  border-radius:7px;
+  color:#d8dff0;
+  font-size:12px;
+  line-height:1.6;
+}
+.page { display:none; }
+.page.active { display:block; }
+@media(max-width:900px) {
+  .grid { grid-template-columns:repeat(2,1fr); }
+  .actions { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px) {
+  .layout { display:block; }
+  .sidebar { width:100%; }
+  .menu { display:grid; grid-template-columns:1fr 1fr; margin-top:20px; }
+  .sidebar-bottom { margin-top:15px; }
+  main { padding:18px; }
+  .grid,.actions { grid-template-columns:1fr 1fr; }
+  .topbar { align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+<aside class="sidebar">
+  <div class="logo">NEXUS<span>.</span></div>
+  <div class="tagline">PROFESSIONAL OPTIMIZER</div>
+
+  <div class="menu">
+    <button class="active" onclick="showPage('dashboard',this)">▦ Dashboard</button>
+    <button onclick="showPage('cleaner',this)">✦ PC Cleaner</button>
+    <button onclick="showPage('gaming',this)">⚡ Gaming Boost</button>
+    <button onclick="showPage('startup',this)">◈ Startup Manager</button>
+    <button onclick="showPage('system',this)">▣ System Info</button>
+  </div>
+
+  <div class="sidebar-bottom">
+    NEXUS OPTIMIZER<br>
+    Version 1.0.0<br>
+    Professional Edition
+  </div>
+</aside>
+
+<main>
+  <div class="topbar">
+    <div>
+      <h1 id="pageTitle">Dashboard</h1>
+      <div class="subtitle">Welcome to NEXUS PC Performance Center</div>
+    </div>
+    <div class="status">● DEMO PREVIEW</div>
+  </div>
+
+  <section id="dashboard" class="page active">
+    <div class="grid">
+      <div class="card">
+        <small>CPU USAGE</small>
+        <div class="value blue">--</div>
+        <small>Live reading unavailable in web preview</small>
+      </div>
+      <div class="card">
+        <small>RAM USAGE</small>
+        <div class="value green">--</div>
+        <small>Live reading unavailable in web preview</small>
+      </div>
+      <div class="card">
+        <small>STORAGE</small>
+        <div class="value purple">--</div>
+        <small>Drive scan not connected</small>
+      </div>
+      <div class="card">
+        <small>PC STATUS</small>
+        <div class="value green">READY</div>
+        <small>Dashboard preview running</small>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Quick Optimization</h2>
+      <div class="actions">
+        <div class="action-card">
+          <h3>✦ Smart Cleaner</h3>
+          <p>Analyze temporary files and cleanup opportunities.</p>
+          <button class="btn" onclick="demo('Cleaner')">Open Cleaner</button>
+        </div>
+        <div class="action-card">
+          <h3>⚡ Gaming Boost</h3>
+          <p>Explore gaming performance settings.</p>
+          <button class="btn" onclick="demo('Gaming Boost')">Open Gaming</button>
+        </div>
+        <div class="action-card">
+          <h3>◈ Startup Manager</h3>
+          <p>Explore startup application management.</p>
+          <button class="btn" onclick="demo('Startup Manager')">Open Manager</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Activity Center</h2>
+      <div class="activity" id="activity">
+        NEXUS interface loaded successfully.<br>
+        Waiting for native Windows optimization engine.
+      </div>
+    </div>
+    <div class="notice">
+      DEMO MODE: This is a web-based interface preview.
+      It cannot access or optimize your computer's files,
+      memory, CPU or Windows settings. A native Windows
+      application engine is required for those features.
+    </div>
+  </section>
+
+  <section id="cleaner" class="page">
+    <div class="card">
+      <h2>Smart PC Cleaner</h2>
+      <p>Analyze temporary files using a native Windows engine.</p>
+      <button class="btn" onclick="demo('Temporary file scanning')">Preview Scan</button>
+    </div>
+  </section>
+
+  <section id="gaming" class="page">
+    <div class="card">
+      <h2>Gaming Performance</h2>
+      <p>Gaming optimization settings will be integrated in a future native version.</p>
+      <button class="btn" onclick="demo('Gaming settings')">View Preview</button>
+    </div>
+  </section>
+
+  <section id="startup" class="page">
+    <div class="card">
+      <h2>Startup Manager</h2>
+      <p>Windows startup applications cannot be read or modified by this website.</p>
+      <button class="btn" onclick="demo('Startup Manager')">View Preview</button>
+    </div>
+  </section>
+
+  <section id="system" class="page">
+    <div class="card">
+      <h2>System Information</h2>
+      <p>CPU: Not connected</p>
+      <p>RAM: Not connected</p>
+      <p>Windows: Not connected</p>
+      <p>GPU: Not connected</p>
+      <div class="notice">Connect a native Windows engine to display real hardware information.</div>
+    </div>
+  </section>
+</main>
+</div>
+
+<script>
+function showPage(id,button) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+  const names = {
+    dashboard:'Dashboard',
+    cleaner:'PC Cleaner',
+    gaming:'Gaming Boost',
+    startup:'Startup Manager',
+    system:'System Information'
+  };
+  document.getElementById('pageTitle').textContent=names[id];
+}
+function demo(feature) {
+  const activity=document.getElementById('activity');
+  if(activity) {
+    activity.textContent=feature+
+      ': Preview only. A native Windows engine is required.';
+  }
+  alert(feature+
+    '\n\nThis is a web preview. No PC settings or files were changed.');
+}
+</script>
+</body>
+</html>
